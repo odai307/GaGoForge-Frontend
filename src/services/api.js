@@ -2,7 +2,8 @@ import axios from 'axios';
 
 // API base URL - adjust this to match your Django backend
 // Note: The base URL should NOT include '/api' since endpoints already include it
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "https://gagoforge.onrender.com/";
 
 console.log('API Base URL:', API_BASE_URL);
 
