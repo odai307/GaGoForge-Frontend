@@ -157,9 +157,10 @@ function ProblemDetail() {
 
         if (framework) {
           // Pass framework as filter parameter to get only problems in this framework
+          // Using 'framework' as key because problemsAPI.getProblems expects 'framework' and maps it to 'framework__name'
           const data = await problemsAPI.getProblems({
-            framework__name: framework,
-          });
+            framework: framework,
+          }, 1, 1000); // Fetch up to 1000 problems to support client-side navigation
           setAllProblems(data.results || data || []);
         }
       } catch (err) {
