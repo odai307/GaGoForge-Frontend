@@ -56,6 +56,10 @@ import { submissionsAPI } from "../services/submissions";
 import { useAuth } from "../contexts/AuthContext";
 import MonacoEditor from "../components/code/MonacoEditor";
 
+import ReactMarkdown from "react-markdown";
+import rehypeHighlight from "rehype-highlight";
+import "highlight.js/styles/github-dark.css"; // Dark theme for code blocks
+
 function ProblemDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -797,16 +801,12 @@ function ProblemDetail() {
                               backgroundColor: "#1F2937",
                               color: "white",
                               padding: 3,
-                              borderRadius: 2,
-                              overflow: "auto",
-                              margin: "16px 0",
-                              fontFamily: "'Fira Code', monospace",
-                              fontSize: "0.9rem",
-                              lineHeight: 1.5,
                             },
                           }}
                         >
-                          {problem.description}
+                          <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
+                            {problem.description}
+                          </ReactMarkdown>
                         </Typography>
 
                         {/* Target Area */}
