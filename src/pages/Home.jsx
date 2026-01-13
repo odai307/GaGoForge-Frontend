@@ -367,7 +367,7 @@ function Home() {
               }}
             >
               Level up your framework skills through gamified challenges. Go
-              from beginner to veteran with our AI-powered validation system.
+              from beginner to veteran with our AST-powered validation system.
             </Typography>
 
             {/* BUTTONS SECTION */}
